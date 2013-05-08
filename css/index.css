@@ -9668,25 +9668,25 @@ hr.color4 {
   padding: 0;
   margin: 0;
   margin-right: 1px;
-  background-image: url('../1pxdeep/img/triad.png');
+  background-image: url('http://rriepe.github.io/1pxdeep/img/triad.png');
   background-color: #f2698b;
   background-position: top right;
   background-repeat: no-repeat;
 }
 #demo_form .color-wheel-label.monochrome:after {
-  background-image: url('../img/monochrome.png');
+  background-image: url('http://rriepe.github.io/1pxdeep/img/monochrome.png');
 }
 #demo_form .color-wheel-label.complement:after {
-  background-image: url('../img/complement.png');
+  background-image: url('http://rriepe.github.io/1pxdeep/img/complement.png');
 }
 #demo_form .color-wheel-label.tetrad:after {
-  background-image: url('../img/tetrad.png');
+  background-image: url('http://rriepe.github.io/1pxdeep/img/tetrad.png');
 }
 #demo_form .color-wheel-label.triad:after {
-  background-image: url('../img/triad.png');
+  background-image: url('http://rriepe.github.io/1pxdeep/img/triad.png');
 }
 #demo_form .color-wheel-label.acc-ana:after {
-  background-image: url('../img/acc-analogue.png');
+  background-image: url('http://rriepe.github.io/1pxdeep/img/acc-analogue.png');
 }
 #theme_hero {
   padding: 0;

@@ -79,14 +79,14 @@
         }
 
         .label-bg(@a) {
-            background-image: url('../1pxdeep/img/triad.png');
+            background-image: url('http://rriepe.github.io/1pxdeep/img/triad.png');
             background-color:@color;
             background-position:top right;
             background-repeat: no-repeat;
         }
 
         .label-bg(@a) when (luma(@color1) >= @luma-upper-break) {
-            background:#888 url('../1pxdeep/img/triad.png') top right no-repeat;
+            background:#888 url('http://rriepe.github.io/1pxdeep/img/triad.png') top right no-repeat;
         }
 
         &:after {
@@ -105,19 +105,19 @@
         }
 
         &.monochrome {
-            &:after { background-image:url('../img/monochrome.png');}
+            &:after { background-image:url('http://rriepe.github.io/1pxdeep/img/monochrome.png');}
         }
         &.complement {
-            &:after { background-image: url('../img/complement.png');}
+            &:after { background-image: url('http://rriepe.github.io/1pxdeep/img/complement.png');}
         }
         &.tetrad {
-            &:after { background-image: url('../img/tetrad.png');}
+            &:after { background-image: url('http://rriepe.github.io/1pxdeep/img/tetrad.png');}
         }
         &.triad {
-            &:after { background-image: url('../img/triad.png');}
+            &:after { background-image: url('http://rriepe.github.io/1pxdeep/img/triad.png');}
         }
         &.acc-ana {
-            &:after { background-image: url('../img/acc-analogue.png');}
+            &:after { background-image: url('http://rriepe.github.io/1pxdeep/img/acc-analogue.png');}
         }
     }
 }
