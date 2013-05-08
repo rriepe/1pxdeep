@@ -1,0 +1,270 @@
+//// Just for the 1pxdeep project page
+
+@gridColumnWidth:       54px;
+@gridGutterWidth:       26px;
+
+#bootstrap_1pxdeep {
+    padding-bottom:72px;
+    .pushdown {
+        margin-top:120px;
+    }
+
+    .section-headline {
+        letter-spacing:-.04em;
+    }
+}
+
+#scheme_header {
+    //background:@color4;
+    .contrast(@color4);
+    position:absolute;
+    top:-50px;
+    right:16px;
+    cursor:pointer;
+}
+
+#demo_form {
+    width:100%;
+
+    #demo_color_container {
+        width:218px;
+        margin-top:0px;
+        float:left;
+        margin-right:8px;
+
+        .minicolors {
+            margin-top:6px;
+        }
+
+        label {
+            padding-right:8px;
+            margin-right:0;
+            &:after {
+                display:none;
+            }
+        }
+    }
+
+    input[type="text"] {
+        width:64px;
+        margin-right:25px;
+    }
+
+    input[type="radio"] {
+        position:relative;
+        top:6px;
+    }
+
+    #change_color {
+        position:relative;
+        //top:8px;
+    }
+
+    .color-wheel-label {
+
+        @color:@color3c;
+
+        font-size:11px;
+        line-height:32px;
+        .contrast(white);
+        text-shadow:none;
+        float:left;
+        position:relative;
+        padding-right:50px;
+        margin-right:16px;
+        text-transform:lowercase;
+
+        &:empty {
+            background:white;
+        }
+
+        .label-bg(@a) {
+            background-image: url('../1pxdeep/img/triad.png');
+            background-color:@color;
+            background-position:top right;
+            background-repeat: no-repeat;
+        }
+
+        .label-bg(@a) when (luma(@color1) >= @luma-upper-break) {
+            background:#888 url('../1pxdeep/img/triad.png') top right no-repeat;
+        }
+
+        &:after {
+            display:block;
+            position:absolute;
+            top:-3px;
+            right:0;
+            .hide-text;
+            content:"color wheel";
+            width:40px;
+            height:40px;
+            padding:0;
+            margin:0;
+            margin-right:1px;
+            .label-bg(@color1);
+        }
+
+        &.monochrome {
+            &:after { background-image:url('../img/monochrome.png');}
+        }
+        &.complement {
+            &:after { background-image: url('../img/complement.png');}
+        }
+        &.tetrad {
+            &:after { background-image: url('../img/tetrad.png');}
+        }
+        &.triad {
+            &:after { background-image: url('../img/triad.png');}
+        }
+        &.acc-ana {
+            &:after { background-image: url('../img/acc-analogue.png');}
+        }
+    }
+}
+
+#theme_hero {
+    padding:0;
+    padding-top:40px;
+    p {
+        font-size:18px;
+    }
+}
+
+#swatches {
+
+    position:relative;
+    .swatch {
+        position:relative;
+        height:60px;
+        padding:12px;
+        font-size:16px;
+        line-height:19px;
+        font-weight:bold;
+        margin-bottom:16px;
+
+        input {
+            position:absolute;
+            font-size:14px;
+            top:38px;
+            left:16px;
+            line-height:16px;
+            width:60px; height:18px;
+        }
+
+        &:last-child {
+            margin-bottom:0;
+        }
+    }
+
+    .color(@color) {
+        background-color:@color;
+        .contrast(@color);
+    }
+
+    .color1 { .color(@color1);}
+    .color1a { .color(@color1a);}
+    .color1b { .color(@color1b);}
+    .color1c { .color(@color1c);}
+
+    .color2 { .color(@color2);}
+    .color2a { .color(@color2a);}
+    .color2b { .color(@color2b);}
+    .color2c { .color(@color2c);}
+
+    .color3 { .color(@color3);}
+    .color3a { .color(@color3a);}
+    .color3b { .color(@color3b);}
+    .color3c { .color(@color3c);}
+
+    .color4 { .color(@color4);}
+    .color4a { .color(@color4a);}
+    .color4b { .color(@color4b);}
+    .color4c { .color(@color4c);}
+}
+
+@media (max-width: 767px) {
+
+    #scheme_header {
+        display:none;
+    }
+
+    .swatch {
+        &:last-child {
+            margin-bottom:16px !important;
+        }
+    }
+    .btn {
+        margin-bottom:16px;
+    }
+    .modal-footer .btn {
+        margin-bottom:0px;
+    }
+
+    #demo_form {
+        position:relative;
+
+        .color-wheel-label {
+            .hide-text;
+            padding-right:24px;
+            margin-right:5px;
+        }
+
+        #demo_color_container {
+            position:absolute;
+            top:-40px;
+            right:0;
+            width:auto;
+        }
+    }
+
+    #bootstrap_1pxdeep {
+        .pushdown {
+            margin-top:0px;
+        }
+
+        #main_navbar {
+            margin-top:156px;
+            border-bottom:2px solid white !important;
+        }
+    }
+
+    #demo_navbar {
+        margin-top:0 !important;
+    }
+
+    .header-tray {
+        margin-bottom:6px;
+        .clearfix();
+    }
+}
+
+@media (max-width: 1200px) {
+
+    #demo_form {
+        .color-wheel-label {
+            .hide-text;
+            padding-right:40px;
+        }
+    }
+
+    #swatches {
+        .swatch {
+            font-size:14px;
+
+            input {
+                position:absolute;
+                font-size:12px;
+                top:38px;
+                left:10px;
+                line-height:16px;
+                width:52px; height:18px;
+            }
+        }
+    }
+
+    #main_navbar {
+        border-bottom:2px solid white;
+    }
+
+
+}
