@@ -1,0 +1,141 @@
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+//// SchemeLESS v1.0
+////
+//// Copyright 2013 Rex Riepe
+//// Licensed under the Apache License v2.0
+//// http://www.apache.org/licenses/LICENSE-2.0
+////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+
+///////////////////////////
+////Customizable values
+///////////////////////////
+
+// This color is used to generate the scheme
+@seed-color:#ed8c2b;
+
+//// Color wheel positions
+///////////////////////////
+
+// Uncomment the color wheel you want to use
+
+// Accented analogue (default)
+@wheel_pos1:45; @wheel_pos2:315; @wheel_pos3:180;
+
+// Tetrad
+//@wheel_pos1:30; @wheel_pos2:180; @wheel_pos3:210;
+
+// Triad
+//@wheel_pos1:120; @wheel_pos2:240; @wheel_pos3:0;
+
+// Compliment
+//@wheel_pos1:180; @wheel_pos2:0; @wheel_pos3:180;
+
+// Monochrome
+//@wheel_pos1:8; @wheel_pos2:352; @wheel_pos3:0;
+
+//// Luma breaks
+///////////////////////////
+
+// Change these for different contrast cutoff points
+
+@luma-upper-break:80%;
+@luma-lower-break:16%;
+
+//// Relative changes to subcolors (lightness, saturation)
+///////////////////////////
+
+// Customize these for different relative a, b and c colors
+
+@color-a-sat:10%;
+@color-a-lit:-20%;
+
+@color-b-sat:8%;
+@color-b-lit:-8%;
+
+@color-c-sat:0%;
+@color-c-lit:8%;
+
+///////////////////////////
+////Scheme building
+///////////////////////////
+
+//// Beginning color values
+///////////////////////////
+
+@sat:saturation(@seed-color);
+@luma:luma(@seed-color);
+@lit:lightness(@seed-color);
+
+//// Color creation
+///////////////////////////
+
+//This makes the scheme's colors using the wheel positions
+
+@l-factor:@luma; // what we'll use for the L in HSL
+
+@color1:@seed-color;
+@color1theme:hsl(hue(spin(@seed-color,0)),@sat,@l-factor);
+
+@color1a:lighten(saturate(@color1,@color-a-sat), @color-a-lit);
+@color1b:lighten(saturate(@color1,@color-b-sat), @color-b-lit);
+@color1c:lighten(saturate(@color1,@color-c-sat), @color-c-lit);
+
+@color2:hsl(hue(spin(@seed-color,@wheel_pos1)),@sat,@l-factor);
+
+@color2a:lighten(saturate(@color2,@color-a-sat), @color-a-lit);
+@color2b:lighten(saturate(@color2,@color-b-sat), @color-b-lit);
+@color2c:lighten(saturate(@color2,@color-c-sat), @color-c-lit);
+
+@color3:hsl(hue(spin(@seed-color,@wheel_pos2)),@sat,@l-factor);
+
+@color3a:lighten(saturate(@color3,@color-a-sat), @color-a-lit);
+@color3b:lighten(saturate(@color3,@color-b-sat), @color-b-lit);
+@color3c:lighten(saturate(@color3,@color-c-sat), @color-c-lit);
+
+@color4:hsl(hue(spin(@seed-color,@wheel_pos3)),@sat,@l-factor);
+
+@color4a:lighten(saturate(@color4,@color-a-sat), @color-a-lit);
+@color4b:lighten(saturate(@color4,@color-b-sat), @color-b-lit);
+@color4c:lighten(saturate(@color4,@color-c-sat), @color-c-lit);
+
+///////////////////////////
+//// Mix-ins
+///////////////////////////
+
+//// Contrast
+///////////////////////////
+
+// contrasts text against a given background color
+
+.contrast (@color) when (luma(@color) >= @luma-upper-break) {
+    //darker text for lighter backgrounds
+    color:average(darken(@color,30%),#222);
+}
+
+.contrast (@color) when (luma(@color) < @luma-upper-break) {
+    //white text for everything else
+    color:#ffffff;
+}
+
+//// Schemify
+///////////////////////////
+
+// brings outside colors more in line with the current scheme
+
+.schemify(@color) { //schemifies a background color
+    @mix-weight:60%;
+    @new-color:mix(hsl(hue(@color),@sat,@luma),@color,@mix-weight);
+    background:@new-color;
+    .contrast(@new-color);
+}
+
+.schemify-text(@color) {
+    @mix-weight:60%;
+    @new-color:mix(hsl(hue(@color),@sat,@luma),@color,@mix-weight);
+    color:@new-color;
+    .contrast(@color);
+}
+
