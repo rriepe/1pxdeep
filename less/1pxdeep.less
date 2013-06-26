@@ -11,7 +11,7 @@
 
 //// Bootstrap variable overrides
 
-@baseFontSize:          18px;
+@baseFontSize:          16px;
 @baseLineHeight:        27px;
 
 @paddingLarge:          13px 22px;
@@ -26,19 +26,21 @@
 
 //// Theme variables
 
-@1pxdeep-bg:            @color4;
-@1pxdeep-modal-bg:      @color1;
+@1pxdeep-bg:            @color1;
+@1pxdeep-modal-bg:      @color2;
 
 //// Mix-ins
 
 .button-text (@color) when (luma(@color1) >= @luma-upper-break) {
     color:average(darken(@color,30%),#222);
-    text-shadow:-1px -1px 0px darken(@color,6%);
+    //text-shadow:-1px -1px 0px darken(@color,6%);
+    text-shadow:none;
 
 }
 .button-text (@color) when (luma(@color1) < @luma-upper-break) {
     color:#ffffff;
-    text-shadow:-1px -1px 0px darken(desaturate(@color,10%),6%);
+    //text-shadow:-1px -1px 0px darken(desaturate(@color,10%),6%);
+    text-shadow:none;
 }
 
 .contrast (@color) when (luma(@color) >= @luma-upper-break) {
@@ -48,7 +50,8 @@
 
 .contrast (@color) when (luma(@color) < @luma-upper-break) {
     color:#ffffff;
-    text-shadow:-1px -1px 0px darken(desaturate(@color,10%),6%);
+    //text-shadow:-1px -1px 0px darken(desaturate(@color,10%),6%);
+    text-shadow:none;
 }
 
 .contrast-link (@color) when (luma(@color) >= @luma-upper-break) {
@@ -58,7 +61,19 @@
 
 .contrast-link (@color) when (luma(@color) < @luma-upper-break) {
     color:mix(#ffffff,@color1,75%);
-    text-shadow:-1px -1px 0px darken(desaturate(@color,10%),6%);
+    //text-shadow:-1px -1px 0px darken(desaturate(@color,10%),6%);
+    text-shadow:none;
+}
+
+.contrast-active (@color) when (luma(@color) >= @luma-upper-break) {
+    color:mix(@color,#eaeaea,6%);
+    text-shadow:none;
+}
+
+.contrast-active (@color) when (luma(@color) < @luma-upper-break) {
+    color:mix(@color,#eaeaea,6%);
+    //text-shadow:-1px -1px 0px darken(desaturate(@color,10%),6%);
+    text-shadow:none;
 }
 
 .btn-borders(@color) {
@@ -147,17 +162,29 @@
 //elements
 
 body,html {
-    background:@1pxdeep-bg;
+    background-color:@1pxdeep-bg;
     .contrast(@1pxdeep-bg);
 
-    -webkit-font-smoothing: antialiased;
+    /*-webkit-font-smoothing: antialiased;
     -moz-font-smoothing: antialiased;
-    font-smoothing: antialiased;
+    font-smoothing: antialiased;*/
 }
 
 h1 {
     font-size:42px;
     line-height:61px;
+}
+
+.headline-text(@color1) {
+    text-shadow:-1px -1px 0px darken(@tone,20%);
+}
+
+.headline-text(@color1) when (luma(@color1) > @luma-upper-break) {
+    text-shadow:none;
+}
+
+h1,h2,h3 {
+    .headline-text(@color1);
 }
 
 a {
@@ -219,44 +246,42 @@ input[type="color"],
     .btn-borders-invert(white);
 }
 
-/*input[type="checkbox"] { //experimental flat look for checkboxes
+input[type="checkbox"] { //experimental
     margin-right:13px;
-    margin-top:8px;
+    margin-top:5px;
     background:white;
 
     &:before {
         display:block;
         content:"";
-        width:18px;
-        height:18px;
-        //border:2px solid @1pxdeep-bg;
-        .border-radius(6px);
+        width:20px;
+        height:20px;
+        .border-radius(5px);
         background:white;
         position:relative;
-        top:-2px;
+        top:-3px;
         left:-2px;
         .box-shadow(inset 1px 1px 0px @1pxdeep-bg);
+        .btn-borders-invert(@1pxdeep-bg);
     }
 
     &:checked {
         &:after {
             display:block;
             content:"";
-            width:6px;
-            height:10px;
+            width:7px;
+            height:11px;
             .border-radius(2px);
             background:white;
             position:relative;
-            top:-16px;
+            top:-19px;
             left:5px;
             .box-shadow(inset -3px -3px 0px @1pxdeep-bg);
-            border-bottom:1px solid #ddd;
-            border-right:1px solid #ddd;
             .border-radius(0);
             .rotate(45deg);
         }
     }
-}*/
+}
 
 .btn {
     font-size:18px;
@@ -277,6 +302,7 @@ input[type="color"],
         &:active {
             background:darken(@color,2%);
             .box-shadow(none);
+            .contrast-active(@color);
         }
     }
 
@@ -293,6 +319,7 @@ input[type="color"],
             background:darken(@color,2%);
             border-color:darken(@color,2%);
             .box-shadow(none);
+            .contrast-active(@color);
         }
     }
 
@@ -433,11 +460,11 @@ input[type="color"],
 
 // Backdrop
 .modal-backdrop {
-  background:@color1;
+  background:@1pxdeep-modal-bg;
   &:after {
-    .contrast(@color1);
+    .contrast(@1pxdeep-modal-bg);
     display:none;
-    content:"»";
+    content:"";
     font-size:170px;
     line-height:100%;
     font-weight:bold;

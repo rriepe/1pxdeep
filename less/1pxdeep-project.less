@@ -5,6 +5,7 @@
 
 #bootstrap_1pxdeep {
     padding-bottom:72px;
+    -webkit-font-smoothing:antialiased;
     .pushdown {
         margin-top:120px;
     }
@@ -23,31 +24,17 @@
     cursor:pointer;
 }
 
+#scheme_color_container {
+    width:120px;
+    float:left;
+    padding-top:3px;
+}
+
 #demo_form {
-    width:100%;
-
-    #demo_color_container {
-        width:218px;
-        margin-top:0px;
-        float:left;
-        margin-right:8px;
-
-        .minicolors {
-            margin-top:6px;
-        }
-
-        label {
-            padding-right:8px;
-            margin-right:0;
-            &:after {
-                display:none;
-            }
-        }
-    }
 
     input[type="text"] {
         width:64px;
-        margin-right:25px;
+        float:left;
     }
 
     input[type="radio"] {
@@ -56,8 +43,7 @@
     }
 
     #change_color {
-        position:relative;
-        //top:8px;
+        margin:12px;
     }
 
     .color-wheel-label {
@@ -70,8 +56,8 @@
         text-shadow:none;
         float:left;
         position:relative;
-        padding-right:50px;
-        margin-right:16px;
+        padding-right:42px;
+        margin-right:12px;
         text-transform:lowercase;
 
         &:empty {
@@ -79,14 +65,14 @@
         }
 
         .label-bg(@a) {
-            background-image: url('http://rriepe.github.io/1pxdeep/img/triad.png');
+            background-image: url('/1pxdeep/img/triad.png');
             background-color:@color;
             background-position:top right;
             background-repeat: no-repeat;
         }
 
         .label-bg(@a) when (luma(@color1) >= @luma-upper-break) {
-            background:#888 url('http://rriepe.github.io/1pxdeep/img/triad.png') top right no-repeat;
+            background:#888 url('../1pxdeep/img/triad.png') top right no-repeat;
         }
 
         &:after {
@@ -105,19 +91,19 @@
         }
 
         &.monochrome {
-            &:after { background-image:url('http://rriepe.github.io/1pxdeep/img/monochrome.png');}
+            &:after { background-image:url('../img/monochrome.png');}
         }
         &.complement {
-            &:after { background-image: url('http://rriepe.github.io/1pxdeep/img/complement.png');}
+            &:after { background-image: url('../img/complement.png');}
         }
         &.tetrad {
-            &:after { background-image: url('http://rriepe.github.io/1pxdeep/img/tetrad.png');}
+            &:after { background-image: url('../img/tetrad.png');}
         }
         &.triad {
-            &:after { background-image: url('http://rriepe.github.io/1pxdeep/img/triad.png');}
+            &:after { background-image: url('../img/triad.png');}
         }
         &.acc-ana {
-            &:after { background-image: url('http://rriepe.github.io/1pxdeep/img/acc-analogue.png');}
+            &:after { background-image: url('../img/acc-analogue.png');}
         }
     }
 }
@@ -180,6 +166,11 @@
     .color4a { .color(@color4a);}
     .color4b { .color(@color4b);}
     .color4c { .color(@color4c);}
+}
+
+.lead {
+    font-size:27px;
+    line-height:42px;
 }
 
 @media (max-width: 767px) {
