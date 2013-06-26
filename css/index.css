@@ -9603,19 +9603,19 @@ hr.color4 {
   background-repeat: no-repeat;
 }
 #demo_form .color-wheel-label.monochrome:after {
-  background-image: url('../1pxdeep/img/monochrome.png');
+  background-image: url('http://rriepe.github.io/1pxdeep/img/monochrome.png');
 }
 #demo_form .color-wheel-label.complement:after {
-  background-image: url('../1pxdeep/img/complement.png');
+  background-image: url('http://rriepe.github.io/1pxdeep/img/complement.png');
 }
 #demo_form .color-wheel-label.tetrad:after {
-  background-image: url('../1pxdeep/img/tetrad.png');
+  background-image: url('http://rriepe.github.io/1pxdeep/img/tetrad.png');
 }
 #demo_form .color-wheel-label.triad:after {
-  background-image: url('../1pxdeep/img/triad.png');
+  background-image: url('http://rriepe.github.io/1pxdeep/img/triad.png');
 }
 #demo_form .color-wheel-label.acc-ana:after {
-  background-image: url('../1pxdeep/img/acc-analogue.png');
+  background-image: url('http://rriepe.github.io/1pxdeep/img/acc-analogue.png');
 }
 #theme_hero {
   padding: 0;
