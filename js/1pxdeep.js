@@ -1,6 +1,10 @@
 $(document).ready(function() {
     //$('#demo_form').show();
 
+    $('#1pxdeep_navbar').scrollspy();
+
+    $('.carousel').carousel();
+
     $('#scheme_color').minicolors({
         animationSpeed: 100,
         animationEasing: 'swing',
@@ -118,7 +122,7 @@ function rgb2hex(rgb) {
 }
 
 less = {
-    env: "development",
-    async: true,
-    relativeUrls: true
+    //env: "development",
+    //async: true,
+    //relativeUrls: true
 };

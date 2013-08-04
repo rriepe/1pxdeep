@@ -230,7 +230,7 @@ input[type="color"],
         width:18px;
         height:18px;
         //border:2px solid @1pxdeep-bg;
-        .border-radius(6px);
+        border-radius:6px;
         background:white;
         position:relative;
         top:-2px;
@@ -244,7 +244,7 @@ input[type="color"],
             content:"";
             width:6px;
             height:10px;
-            .border-radius(2px);
+            border-radius:2px;
             background:white;
             position:relative;
             top:-16px;
@@ -252,7 +252,7 @@ input[type="color"],
             .box-shadow(inset -3px -3px 0px @1pxdeep-bg);
             border-bottom:1px solid #ddd;
             border-right:1px solid #ddd;
-            .border-radius(0);
+            border-radius:0;
             .rotate(45deg);
         }
     }
@@ -413,12 +413,11 @@ input[type="color"],
             font-size:36px;
             font-weight:bold;
             .contrast(@1pxdeep-modal-bg);
-            margin-top:-2px;
         }
     }
 
     .modal-body {
-        .border-radius(6px 6px 0 0);
+        border-radius:6px 6px 0 0;
         background:white;
         .contrast(white);
         padding-bottom:0;
@@ -507,7 +506,7 @@ input[type="color"],
 
     .nav {
         .active a {
-            .border-radius(1px);
+            border-radius:1px;
             background:@color1b;
             .contrast(@color1b);
             .box-shadow(none);
@@ -829,7 +828,7 @@ input[type="color"],
 .accordion {
     .accordion-heading {
         border-bottom: 0;
-        .border-radius(6px);
+        border-radius:6px;
         a {
             &:hover {
                 text-decoration:none;
@@ -848,7 +847,7 @@ input[type="color"],
         .btn-borders-invert(white);
         margin:12px;
         padding:15px;
-        .border-radius(6px);
+        border-radius:6px;
     }
 
     .accordion-inner-color(@color) {

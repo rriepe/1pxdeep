@@ -4,129 +4,142 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="icon" href="img/favicon.png" type="image/x-icon">
-        <link rel="stylesheet" type="text/css" href="css/index-original.css" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" /> -->
+        <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
 
-        <title>1pxdeep | A Bootstrap theme exuding color and oozing flat</title>
+        <title>1pxdeep | A flat Bootstrap 3 theme that changes color</title>
     </head>
-    <body id="bootstrap_1pxdeep">
-        <div id="main_navbar" class="navbar navbar-fixed-bottom hide">
-            <div class="navbar-inner">
-                <div class="row-fluid">
-                    <div class="span4">
-                        <a class="brand color4" href="/"><strong>1pxdeep</strong></a>
+    <body id="bootstrap_1pxdeep" data-spy="scroll" data-target="#1pxdeep_navbar">
+        <div id="1pxdeep_navbar2" class="navbar navbar-fixed-top hide">
+            <a class="navbar-brand" href="/">1pxdeep</a>
+            <ul class="nav navbar-nav pull-right">
+                <li><a href="#splash" class="hide">Home</a></li>
+                <li><a href="#install">Installation</a></li>
+                <li><a href="#usage">Usage</a></li>
+                <li><a href="#philosophy">Philosophy</a></li>
+                <li><a href="#schemeless">SchemeLESS</a></li>
+                <li><a href="#components">Components</a></li>
+                <li><a href="#tips">Tips</a></li>
+            </ul>
+        </div>
+
+<div class="navbar navbar-fixed-top" id="1pxdeep_navbar">
+  <div class="container">
+
+    <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <!-- Be sure to leave the brand out there if you want it shown -->
+    <a class="navbar-brand" href="#">Title</a>
+
+    <!-- Place everything within .navbar-collapse to hide it until above 768px -->
+    <div class="nav-collapse collapse navbar-responsive-collapse">
+      <ul class="nav navbar-nav pull-right">
+                <li><a href="#splash" class="hide">Home</a></li>
+                <li><a href="#install">Installation</a></li>
+                <li><a href="#usage">Usage</a></li>
+                <li><a href="#philosophy">Philosophy</a></li>
+                <li><a href="#schemeless">SchemeLESS</a></li>
+                <li><a href="#components">Components</a></li>
+                <li><a href="#tips">Tips</a></li>
+            </ul>
+    </div><!-- /.nav-collapse -->
+  </div><!-- /.container -->
+</div><!-- /.navbar -->
+
+        <div class="container">
+            <div id="splash" class="row section">
+                <div class="col-lg-5">
+                    <div id="theme_hero" class="jumbotron color1">
+                        <h1>1pxdeep</h1>
+                        <p>Bootstrap 3 theme. Flat(ish). Changes color.</p>
+                        <p>
+                            <a href="https://github.com/rriepe/1pxdeep/archive/master.zip" class="btn btn-default color2a">Download</a>
+                            <a href="https://github.com/rriepe/1pxdeep" class="btn btn-default color1a">GitHub Project</a>
+                        </p>
                     </div>
-                    <div class="span4">
-                        <ul class="nav">
-                            <li class="active"><a href="#">Home</a></li>
-                            <li><a href="#">Link</a></li>
-                            <li><a href="#">Link</a></li>
-                        </ul>
-                    </div>
-                    <div class="span4">
-                        <form class="navbar-form pull-right">
-                            <input type="text">
-                            <button type="submit" class="btn color4 disabled">Submit</button>
+                </div>
+                <div class="col-lg-7">
+                    <div id="swatches" class="well">
+                        <h6 id="scheme_header" class="pull-right clearfix hide">&raquo; Generate your colors here:</h6>
+                        <form id="demo_form">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <p>For a new scheme, pick a seed color and color wheel positions.</p>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div id="scheme_color_container">
+                                        <input id="scheme_color" type="text" value="#5186b8"/>
+                                    </div>
+                                    <label class="radio acc-ana color-wheel-label">
+                                        <input name="wheel_pos" id="accented_analogue" checked="checked" type="radio" value="">
+                                        <span class="hide">Accented&nbsp;analogue</span>
+                                    </label>
+                                    <label class="radio monochrome color-wheel-label">
+                                        <input name="wheel_pos" id="monochrome" type="radio" value="">
+                                        <span class="hide">Monochrome</span>
+                                    </label>
+                                    <label class="radio complement color-wheel-label">
+                                        <input name="wheel_pos" id="complement" type="radio" value="">
+                                        <span class="hide">Complement</span>
+                                    </label>
+                                    <label class="radio triad color-wheel-label">
+                                        <input name="wheel_pos" id="triad" type="radio" value="">
+                                        <span class="hide">Triad</span>
+                                    </label>
+                                    <label class="radio tetrad color-wheel-label">
+                                        <input name="wheel_pos" id="tetrad" type="radio" value="">
+                                        <span class="hide">Tetrad</span>
+                                    </label>
+                                </div>
+                                <div class="col-lg-12">
+                                    <input type="submit" id="change_color" class="btn btn-default color3 disabled pull-right" value="Scheme now"/>
+                                </div>
+                            </div>
                         </form>
+
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="swatch color1">@color1<input type="text" value="#ed8c2b"/></div>
+                                <div class="swatch color1a">@color1a<input type="text" value="#c66606"/></div>
+                                <div class="swatch color1b">@color1b<input type="text" value="#f58514"/></div>
+                                <div class="swatch color1c">@color1c<input type="text" value="#f2ad69"/></div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="swatch color2">@color2<input type="text" value="#c4ef43"/></div>
+                                <div class="swatch color2a">@color2a<input type="text" value="#96c606"/></div>
+                                <div class="swatch color2b">@color2b<input type="text" value="#bdf514"/></div>
+                                <div class="swatch color2c">@color2c<input type="text" value="#d0f269"/></div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="swatch color3">@color3<input type="text" value="#ef436e"/></div>
+                                <div class="swatch color3a">@color3a<input type="text" value="#c60636"/></div>
+                                <div class="swatch color3b">@color3b<input type="text" value="#f5144c"/></div>
+                                <div class="swatch color3c">@color3c<input type="text" value="#f2698b"/></div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="swatch color4">@color4<input type="text" value="#4399ef"/></div>
+                                <div class="swatch color4a">@color4a<input type="text" value="#0666c6"/></div>
+                                <div class="swatch color4b">@color4b<input type="text" value="#1485f5"/></div>
+                                <div class="swatch color4c">@color4c<input type="text" value="#69adf2"/></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container pushdown">
-                <div class="row">
-                    <div class="span5">
-                        <div id="theme_hero" class="hero-unit color1">
-                            <h1>1pxdeep</h1>
-                            <p>Bootstrap theme. Exudes&nbsp;color.&nbsp;Oozes&nbsp;flat.</p>
-                            <div class="well color1">
-                                <div class="row-fluid">
-                                    <div class="span6">
-                                        <a href="https://github.com/rriepe/1pxdeep/archive/master.zip" class="btn btn-block btn-large color4a">Download</a>
-                                    </div>
-                                    <div class="span6">
-                                        <a href="https://github.com/rriepe/1pxdeep" class="btn btn-large btn-block color4">Github Project</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="span7">
-                        <div id="swatches" class="well">
-                            <h6 id="scheme_header" class="pull-right clearfix hide">&raquo; Generate your colors here:</h6>
-
-                            <form id="demo_form">
-                                <div class="row-fluid">
-                                    <div class="span12">
-                                        <p>For a new scheme, pick a seed color and color wheel positions.</p>
-                                    </div>
-                                    <div class="span12">
-                                        <div id="scheme_color_container">
-                                            <input id="scheme_color" type="text" value="#5186b8"/>
-                                        </div>
-                                        <label class="radio acc-ana color-wheel-label">
-                                            <input name="wheel_pos" id="accented_analogue" checked="checked" type="radio" value="">
-                                            <span class="hide">Accented&nbsp;analogue</span>
-                                        </label>
-                                        <label class="radio monochrome color-wheel-label">
-                                            <input name="wheel_pos" id="monochrome" type="radio" value="">
-                                            <span class="hide">Monochrome</span>
-                                        </label>
-                                        <label class="radio complement color-wheel-label">
-                                            <input name="wheel_pos" id="complement" type="radio" value="">
-                                            <span class="hide">Complement</span>
-                                        </label>
-                                        <label class="radio triad color-wheel-label">
-                                            <input name="wheel_pos" id="triad" type="radio" value="">
-                                            <span class="hide">Triad</span>
-                                        </label>
-                                        <label class="radio tetrad color-wheel-label">
-                                            <input name="wheel_pos" id="tetrad" type="radio" value="">
-                                            <span class="hide">Tetrad</span>
-                                        </label>
-                                    </div>
-                                    <div class="span12">
-                                        <input type="submit" id="change_color" class="btn color3 disabled pull-right" value="Scheme now"/>
-                                    </div>
-                                </div>
-                            </form>
-
-                            <div class="row-fluid">
-                                <div class="span3">
-                                    <div class="swatch color1">@color1<input type="text" value="#ed8c2b"/></div>
-                                    <div class="swatch color1a">@color1a<input type="text" value="#c66606"/></div>
-                                    <div class="swatch color1b">@color1b<input type="text" value="#f58514"/></div>
-                                    <div class="swatch color1c">@color1c<input type="text" value="#f2ad69"/></div>
-                                </div>
-                                <div class="span3">
-                                    <div class="swatch color2">@color2<input type="text" value="#c4ef43"/></div>
-                                    <div class="swatch color2a">@color2a<input type="text" value="#96c606"/></div>
-                                    <div class="swatch color2b">@color2b<input type="text" value="#bdf514"/></div>
-                                    <div class="swatch color2c">@color2c<input type="text" value="#d0f269"/></div>
-                                </div>
-                                <div class="span3">
-                                    <div class="swatch color3">@color3<input type="text" value="#ef436e"/></div>
-                                    <div class="swatch color3a">@color3a<input type="text" value="#c60636"/></div>
-                                    <div class="swatch color3b">@color3b<input type="text" value="#f5144c"/></div>
-                                    <div class="swatch color3c">@color3c<input type="text" value="#f2698b"/></div>
-                                </div>
-                                <div class="span3">
-                                    <div class="swatch color4">@color4<input type="text" value="#4399ef"/></div>
-                                    <div class="swatch color4a">@color4a<input type="text" value="#0666c6"/></div>
-                                    <div class="swatch color4b">@color4b<input type="text" value="#1485f5"/></div>
-                                    <div class="swatch color4c">@color4c<input type="text" value="#69adf2"/></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="color1"/>
-                <div class="row">
-                    <div class="span5">
+        <div class="container color4">
+                
+                <div id="install" class="row section">
+                    <div class="col-lg-5">
                         <h1 class="section-headline">A breezy install.</h1>
                         <p class="lead">Just two steps with LESS.</p>
                     </div>
-                    <div class="span7">
+                    <div class="col-lg-7">
                         <p>Be sure to use the <a href="https://github.com/twitter/bootstrap">LESS version of Boostrap</a>.</p>
                         <ol>
                             <li><p>Include <span class="label">scheme.less</span> anywhere.</p></li>
@@ -136,89 +149,177 @@
                         <pre class="color1">
 @import "scheme.less"; // color scheme
 @import "bootstrap.less"; // bootstrap
-@import "responsive.less"; // bootstrap responsive
 @import "1pxdeep.less"; // 1pxdeep theme
 @import "style.less"; // your own styles
 </pre>
                         <p>Need help with LESS? Try the <a href="http://lesscss.org/">LESS CSS project page</a>.</p>
                     </div>
                 </div>
-                <hr class="color1"/>
-                <div class="row">
-                    <div class="span5">
+                
+                <div id="usage" class="row section">
+                    <div class="col-lg-5">
                         <h1 class="section-headline">Color, meet class.</h1>
                         <p class="lead">Coloring hasn't been this easy since "stay in the lines."</p>
 
                     </div>
-                    <div class="span7">
+                    <div class="col-lg-7">
                         <p>Add a <em>.color1</em> class to breathe color into any Bootstrap element.</p>
                         <pre class="color1">
-&lt;button class="btn btn-large color1"&gt;Color 1&lt;/button&gt;
+&lt;button class="btn btn-default color1"&gt;Color 1&lt;/button&gt;
 </pre>
                         <p>Try it with <em>.color2</em>, <em>.color3</em>, and <em>.color4</em> too&mdash; all basic SchemeLESS colors double as utility color classes in 1pxdeep:</p>
-                        <div class="well">
-                            <div class="row-fluid">
-                                <div class="span3">
-                                    <button class="btn btn-large btn-block color1">Color 1</button>
-                                </div>
-                                <div class="span3">
-                                    <button class="btn btn-large btn-block color2">Color 2</button>
-                                </div>
-                                <div class="span3">
-                                    <button class="btn btn-large btn-block color3">Color 3</button>
-                                </div>
-                                <div class="span3">
-                                    <button class="btn btn-large btn-block color4">Color 4</button>
-                                </div>
-                            </div>
-                        </div>
+                        <button class="btn btn-default color1">Color 1</button>
+                        <button class="btn btn-default color2">Color 2</button>
+                        <button class="btn btn-default color3">Color 3</button>
+                        <button class="btn btn-default color4">Color 4</button>
                         <p>Buttons also support subcolor classes like <em>.color1b</em>:</p>
                         <div class="well color1">
-                            <div class="row-fluid">
-                                <div class="span3">
-                                    <button class="btn btn-large btn-block color1b">Abort</button>
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <button class="btn btn-default color1b">Abort</button>
                                 </div>
-                                <div class="span3">
-                                    <button class="btn btn-large btn-block color1b">Retry</button>
+                                <div class="col-lg-3">
+                                    <button class="btn btn-default color1b">Retry</button>
                                 </div>
-                                <div class="span3 offset3">
-                                    <button class="btn btn-large btn-block color1a">Fail</button>
+                                <div class="col-lg-3 col-offset-3">
+                                    <button class="btn btn-default color1a">Fail</button>
                                 </div>
                             </div>
                         </div>
                         <p>Standard Bootstrap buttons are served in a schemified flavor:</p>
                         <div class="well">
-                            <div class="row-fluid">
-                                <div class="span3">
-                                    <button class="btn btn-large btn-block btn-primary">Primary</button>
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <button class="btn btn-primary">Primary</button>
                                 </div>
-                                <div class="span3">
-                                    <button class="btn btn-large btn-block btn-success">Success</button>
+                                <div class="col-lg-3">
+                                    <button class="btn btn-success">Success</button>
                                 </div>
-                                <div class="span3">
-                                    <button class="btn btn-large btn-block btn-warning">Warning</button>
+                                <div class="col-lg-3">
+                                    <button class="btn btn-warning">Warning</button>
                                 </div>
-                                <div class="span3">
-                                    <button class="btn btn-large btn-block btn-danger">Danger</button>
+                                <div class="col-lg-3">
+                                    <button class="btn btn-danger">Danger</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <hr class="color1"/>
-                <div class="row">
-                    <div class="span5">
+                
+                <div id="philosophy" class="row section">
+                    <div class="col-lg-5">
                         <h1 class="section-headline">It's all relative.</h1>
                         <p class="lead">Get to work with schemes; don't lollygag with colors.</p>
                     </div>
-                    <div class="span7">
+                    <div class="col-lg-7">
+
+
+<form>
+  <fieldset>
+    <legend>Legend</legend>
+    <div class="form-group">
+      <label for="exampleInputEmail">Email address</label>
+      <input type="text" class="form-control" id="exampleInputEmail" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputFile">File input</label>
+      <input type="file" id="exampleInputFile">
+      <p class="help-block">Example block-level help text here.</p>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox"> Check me out
+      </label>
+    </div>
+    <button type="submit" class="btn btn-default color2">Submit</button>
+  </fieldset>
+</form>
+
+<label class="checkbox-inline">
+  <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+</label>
+<label class="checkbox-inline">
+  <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+</label>
+<label class="checkbox-inline">
+  <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+</label>
+
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+    <div class="col-lg-10">
+      <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+    <div class="col-lg-10">
+      <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Remember me
+        </label>
+      </div>
+      <button type="submit" class="btn btn-default color2">Sign in</button>
+    </div>
+  </div>
+</form>
+
+<div class="checkbox">
+  <label>
+    <input type="checkbox" value="">
+    Option one is this and that&mdash;be sure to include why it's great
+  </label>
+</div>
+
+<div class="radio">
+  <label>
+    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+    Option one is this and that&mdash;be sure to include why it's great
+  </label>
+</div>
+<div class="radio">
+  <label>
+    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+    Option two can be something else and selecting it will deselect option one
+  </label>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="btn-group">
+  <button type="button" class="btn btn-default color3">Action</button>
+  <button type="button" class="btn btn-default color3 dropdown-toggle" data-toggle="dropdown">
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div>
                         <p><strong>Relative color design</strong> is designing by relative visual weight, or designing with color schemes. 1pxdeep brings that concept to Bootstrap.</p>
                         <p>Here are two simple tables, based on <span class="label color2">@color2</span> and <span class="label color3">@color3</span>.</p>
-                        <div class="row-fluid">
-                            <div class="span6">
+                        <div class="row">
+                            <div class="col-lg-6">
                                 <ul class="breadcrumb color2">
-                                    <li><a href="#" class="noclick">Home</a> <span class="divider">/</span></li>
-                                    <li><a href="#" class="noclick">Colors</a> <span class="divider">/</span></li>
+                                    <li><a href="#" class="noclick">Home</a></li>
+                                    <li><a href="#" class="noclick">Colors</a></li>
                                     <li class="active">Color 2</li>
                                 </ul>
                                 <table class="table table-striped table-bordered color2">
@@ -247,20 +348,18 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <div class="pagination color2">
-                                    <ul>
-                                        <li><a href="#">Prev</a></li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">Next</a></li>
-                                    </ul>
-                                </div>
+                                <ul class="pagination color2">
+                                    <li><a href="#">Prev</a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">Next</a></li>
+                                </ul>
                             </div>
-                            <div class="span6">
+                            <div class="col-lg-6">
                                 <ul class="breadcrumb color3">
-                                    <li><a href="#">Home</a> <span class="divider">/</span></li>
-                                    <li><a href="#">Colors</a> <span class="divider">/</span></li>
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">Colors</a></li>
                                     <li class="active">Color 3</li>
                                 </ul>
                                 <table class="table table-striped table-bordered color3">
@@ -289,15 +388,13 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <div class="pagination color3">
-                                    <ul>
-                                        <li><a href="#">Prev</a></li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">Next</a></li>
-                                    </ul>
-                                </div>
+                                <ul class="pagination color3">
+                                    <li><a href="#">Prev</a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">Next</a></li>
+                                </ul>
                             </div>
                         </div>
                         <p>Sometimes the first is <em>magenta</em>, sometimes it's <em>cerulean</em>, but it's always <em>.color1</em>.</p>
@@ -306,144 +403,171 @@
                         <p>Just plain indecisive? Great. Decide later.</p>
                     </div>
                 </div>
-                <hr class="color1"/>
-                <div class="row">
-                    <div class="span5">
-                        <h1 class="section-headline">SchemeLESS.</h1>
+                
+                <div id="schemeless" class="row section">
+                    <div class="col-lg-5">
+                        <h1 class="section-headline">Scheme less.</h1>
                         <p class="lead">Work as much or as little on scheming as you want to.</p>
                     </div>
-                    <div class="span7">
+                    <div class="col-lg-7">
                         <p>Edit <code>scheme.less</code> to edit your color scheme.</p>
                         <p>Not touching anything gives you a <strong>@seed-color</strong> of #ed8c2b, which generates this page's default scheme.</p>
                         <p>Edit <strong>@seed-color</strong> to get an entirely new scheme. Tweak from there, editing the color wheel, luma breaks and mix-ins until you're happy with the results.</p>
                         <p>You can even overwrite colors entirely&mdash; a great way to passive-aggressively commentate on the quality of SchemeLESS's default scheme generator.</p>
+                        <p><a href="https://github.com/rriepe/schemeless">GitHub project for SchemeLESS</a></p>
+
+
+<div class="panel">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Panel heading</div>
+  <p>...</p>
+
+  <!-- List group -->
+  <ul class="list-group">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Morbi leo risus</li>
+    <li class="list-group-item">Porta ac consectetur ac</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+  </ul>
+</div>
+
+
+
+
+
+
+
+
                     </div>
                 </div>
-                <hr class="color1"/>
-                <div class="row">
-                    <div class="span5">
+                
+                <div id="components" class="row section">
+                    <div class="col-lg-5">
                         <h1 class="section-headline">A light, easy feel.</h1>
                         <p class="lead">But still the Bootstrap you love.</p>
                     </div>
-                    <div class="span7">
-                        <p>Inverted text with larger font sizes. A spacious, airy feel. Just the slightest hint of depth on interactive elements.</p>
-                        <p>Some featured elements:</p>
-                        <div class="color1 well">
-                            <!-- Button to trigger modal -->
-                            <p>
-                                <a href="#myModal" role="button" class="btn btn-large color4" data-toggle="modal">Check out the modal</a>&nbsp;
-                                <a id="toggle_navbar" class="btn btn-large color4">Toggle navbar</a>
-                            </p>
-                            <div class="alert">
-                                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                <strong>Hey!</strong> The default, no-frills alert.
-                            </div>
-                            <div class="alert alert-error">
-                                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                <strong>Bootstrap classes</strong> like <em>.alert-error</em> are schemified.
-                            </div>
-                            <div class="alert alert-success ">
-                                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                <strong>Success!</strong>
-                            </div>
-                            <div class="alert color1">
-                                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                <strong>Color classes</strong> like <em>.color1</em> are also supported. Duh.
-                            </div>
-                            <p>A simple <em>.color1</em> progress bar:</p>
-                            <div class="progress active color1">
-                                <div class="bar" style="width: 66%;"></div>
-                            </div>
-                            <p>An animated, striped <em>.color3</em> progress bar:</p>
-                            <div class="progress progress-striped color3 active">
-                                <div class="bar" style="width: 60%;"></div>
-                            </div>
-                            <p>A <em>.color2</em> bar. Note that bars inherit colors from <em>.progress</em>:</p>
-                            <div class="progress color2">
-                                <div class="bar" style="width: 30%;"></div>
-                            </div>
-                            <form id="theme_form_example" class="well color4">
-                                <fieldset>
-                                    <legend>A simple form</legend>
-                                    <label>Favorite color</label>
-                                    <input type="text" placeholder="Type something…">
-                                    <label>Favorite planet</label>
-                                    <input type="text" placeholder="Type something…">
-                                    <span class="help-block"></span>
-                                    <button type="submit" class="btn btn-large color4a">Submit</button>
-                                </fieldset>
-                            </form>
-                            <div class="row-fluid">
-                                <div class="span4">
-                                    <div class="btn-group">
-                                        <a class="btn color3 dropdown-toggle" data-toggle="dropdown" href="">
-                                            Dropdown
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu color3">
-                                            <li><a href="#">Hello Dropdown!</a></li>
-                                            <li><a href="#">Slightly longer text link</a></li>
-                                        </ul>
-                                    </div>
-                                    <br/>
-                                    <br/>
-                                    <div class="btn-group">
-                                        <button class="btn color1">btn</button>
-                                        <button class="btn color1">group</button>
-                                    </div>
+                    <div class="col-lg-7">
+                        <!-- Button to trigger modal -->
+                        <p>
+                            <a href="#myModal" role="button" class="btn btn-default color4" data-toggle="modal">Check out the modal</a>&nbsp;
+                        </p>
+                        <div class="alert">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>Hey!</strong> The default, no-frills alert.
+                        </div>
+                        <div class="alert alert-error">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>Bootstrap classes</strong> like <em>.alert-error</em> are schemified.
+                        </div>
+                        <div class="alert alert-success ">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>Success!</strong>
+                        </div>
+                        <div class="alert color2">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>Color classes</strong> like <em>.color2</em> are also supported. Duh.
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 50%"></div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar color2" style="width: 40%"></div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar color3" style="width: 60%"></div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar color4" style="width: 80%"></div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" style="width: 40%"></div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-warning" style="width: 60%"></div>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-danger" style="width: 80%"></div>
+                        </div>
 
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="btn-group">
+                                    <a class="btn btn-default color3 dropdown-toggle" data-toggle="dropdown" href="">
+                                        Dropdown
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu color3">
+                                        <li><a href="#">Hello Dropdown!</a></li>
+                                        <li><a href="#">Slightly longer text link</a></li>
+                                    </ul>
                                 </div>
-                                <div class="span8">
-                                    <blockquote class="color3">
-                                        Self-education is, I firmly believe, the only kind of education there is.
-                                        <p class="cite text-right">&ndash;<em>Isaac Asimov</em></p>
-                                    </blockquote>
+                                <br/>
+                                <br/>
+                                <div class="btn-group">
+                                    <button class="btn btn-default color1">btn</button>
+                                    <button class="btn btn-default color1">group</button>
                                 </div>
+
                             </div>
-                            <div class="row-fluid">
-                                <div class="span12">
-                                    <div class="well">
-                                        <div id="demo_navbar" class="navbar navbar-inverse">
-                                            <div class="navbar-inner">
-                                                <a class="brand" href="#">Inverse Navbar</a>
-                                                <ul class="nav">
-                                                <li class="active"><a href="#">Home</a></li>
-                                                <li><a href="#">Link</a></li>
-                                                <li><a href="#">Link</a></li>
-                                                </ul>
-                                            </div>
+                            <div class="col-lg-8">
+                                <blockquote class="color3">
+                                    Self-education is, I firmly believe, the only kind of education there is.
+                                    <p class="cite text-right">&ndash;<em>Isaac Asimov</em></p>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="well">
+                                    <div id="demo_navbar" class="navbar navbar-inverse">
+                                        <div class="navbar-inner">
+                                            <a class="brand" href="#">Inverse Navbar</a>
+                                            <ul class="nav">
+                                            <li class="active"><a href="#">Home</a></li>
+                                            <li><a href="#">Link</a></li>
+                                            <li><a href="#">Link</a></li>
+                                            </ul>
                                         </div>
-                                        <p>Inverted navbar, currently in <span class="label color4">@color4</span> only.</p>
                                     </div>
+                                    <p>Inverted navbar, currently in <span class="label color4">@color4</span> only.</p>
+                                </div>
 
-                                    <!-- Modal -->
-                                    <div id="myModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <!-- Modal -->
+                                  <div class="modal" id="myModal">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
                                         <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                            <h3 id="myModalLabel">Modal Madness</h3>
+                                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                          <h4 class="modal-title">A word from our sponsors</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <p>Look at that subtle not-white coloring. The tasteful thickness of it. Oh my God, it even has a floating X!</p>
-                                            <p>By default, modals have a backdrop color of <span class="label color2">@color2</span>.</p>
-                                            <p>They don't use color classes.</p>
-                                            <p>Instead, change <strong>@1px-modal-bg</strong> in <span class="label color4">scheme.less</span>.</p>
+                                            <p>Test.</p>
+                                            <p>Test.</p>
+                                            <p>Test.</p>
+                                            <p>Test.</p>
+                                            <p>Test.</p>
+                                          
                                         </div>
                                         <div class="modal-footer">
-                                            <button class="btn color1" data-dismiss="modal" aria-hidden="true">Close</button>
+                                            <p> 
+                                                <a href="#" class="btn btn-default color1b">Discard</a> 
+                                                <a href="#" class="btn btn-default color1c">Save Changes</a>
+                                            </p>
                                         </div>
-                                    </div>
-                                </div>
+                                      </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                  </div><!-- /.modal -->
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <hr class="color1"/>
-                <div class="row">
-                    <div class="span5">
+                <div id="tips" class="row section">
+                    <div class="col-lg-5">
                         <h1 class="section-headline">Some helpful tips.</h1>
                     </div>
-                    <div class="span7">
+                    <div class="col-lg-7">
                         <ul>
                             <li><p>1pxdeep generally works better with a <strong>@seed-color</strong> that's on the less saturated side.</p></li>
                             <li><p>Using lots of wells will give depth and structure to the page, while giving you more control over background colors.</p></li>
@@ -453,19 +577,19 @@
                         </ul>
                     </div>
                 </div>
-                <hr class="color1"/>
-                <div class="row">
-                    <div class="span12">
+                
+                <div class="row section">
+                    <div class="col-lg-12">
                         <div class="well color1">
-                            <div class="row-fluid">
-                                <div class="span5">
+                            <div class="row">
+                                <div class="col-lg-5">
                                     <h4>License</h4>
                                     <p>Code licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
                                 </div>
-                                <div class="span4 offset3">
+                                <div class="col-lg-3 col-offset-3">
                                     <h4>About the author</h4>
                                     <p class="clearfix">Rex Riepe lives in San Francisco, working as a UX Designer at a <a href="http://tivix.com/">Django/Mobile shop called Tivix</a>. He likes to read and cook. He <em>still</em> can't stop talking about Bioshock Infinite.</p>
-                                    <p><a href="http://twitter.com/rexr">Follow him on Twitter</a></p>
+                                    <p><a href="http://twitter.com/rexr">Follow @RexR on Twitter</a></p>
 
                                 </div>
                             </div>
@@ -480,11 +604,10 @@
         <script type="text/javascript" src="js/1pxdeep.js"></script>
         <script type="text/javascript" src="js/less.js"></script>
 
-
         <link rel="stylesheet" type="text/css" href="css/jquery.minicolors.css" />
         <script type="text/javascript" src="js/jquery.minicolors.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script>
+        <!--<script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -493,6 +616,6 @@
           ga('create', 'UA-40764909-1', 'github.io');
           ga('send', 'pageview');
 
-        </script>
+        </script>-->
     </body>
 </html>
