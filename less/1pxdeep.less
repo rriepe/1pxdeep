@@ -1,6 +1,7 @@
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
-//// 1pxdeep v0.9
+////
+//// 1pxdeep v1.0
 ////
 //// Copyright 2013 Rex Riepe
 //// Licensed under the Apache License v2.0
@@ -27,10 +28,10 @@
 @btn-default-bg:        @color1;
 @btn-default-border:    @btn-default-bg;
 
-@brand-primary:         hsl(hue(@color1),@sat,@l-factor);
+@brand-primary:         hsl(hue(#428bca),@sat,@l-factor);
 @brand-success:         hsl(hue(#5cb85c),@sat,@l-factor);
-@brand-warning:         hsl(hue(#f89406),@sat,@l-factor);
-@brand-danger:          hsl(hue(#ee5f5b),@sat,@l-factor);
+@brand-warning:         hsl(hue(#f0ad4e),@sat,@l-factor);
+@brand-danger:          hsl(hue(#d9534f),@sat,@l-factor);
 @brand-info:            hsl(hue(#5bc0de),@sat,@l-factor);
 
 @navbar-link-color:                white;
@@ -87,21 +88,9 @@
 
 .btn-borders(@color) {
     border:1px solid transparent;
-    border-style:solid;
     border-collapse:collapse;
-    border-width:1px;
-    border-top-color:lighten(@color,10%);
-    border-left-color:lighten(@color,4%);
-    border-right-color:darken(@color,2%);
-    border-bottom-color:darken(@color,2%);
-
-    border-left-color:transparent;
-    border-right-color:transparent;
-    border-bottom-color:transparent;
-
-    &:active {
-        border-color:@color;
-    }
+    border-top-color:overlay(lighten(@color,25%),darken(@color,5%));
+    border-top-color:mix(softlight(#aaa,@color),@color,70%);
 }
 
 .btn-borders(@color) when (luma(@seed-color) > 85%) {
@@ -119,10 +108,12 @@
 }
 
 .btn-borders-invert(@color) {
-    border-top-color:darken(@color,12%);
-    border-left-color:darken(@color,8%);
-    border-right-color:lighten(@color,4%);
-    border-bottom-color:lighten(@color,4%);
+    border-top-color:darken(@color,luma(@color)/5);
+    border-bottom-color:lighten(@color,35 - luma(@color)/3);
+
+    border-top-color:transparent;
+    border-left-color:transparent;
+    border-right-color:transparent;
 }
 
 .btn-borders-invert(@color) when (luma(@seed-color) > 85%)  {
@@ -148,8 +139,8 @@
     &:active,
     &.active {
         background-color: darken(@background, 2%);
-        border:1px solid darken(@background,2%);
         .btn-borders(darken(@background, 2%));
+        border-top:1px solid darken(@background, 2%);
         .1pxdeep-shadow(1.5);
     }
 
@@ -169,14 +160,14 @@
 
 @1pxdeep-shadow-intensity:.1;
 
-@1pxdeep-shadow-color:darken(@1pxdeep-bg,20%);
+@1pxdeep-shadow-color:#111;
 
 @1pxdeep-shadow-r:red(@1pxdeep-shadow-color);
 @1pxdeep-shadow-g:green(@1pxdeep-shadow-color);
 @1pxdeep-shadow-b:blue(@1pxdeep-shadow-color);
 
 .1pxdeep-shadow(@intensity:1) {
-    .box-shadow(0px 1px 3px rgba(@1pxdeep-shadow-r,@1pxdeep-shadow-g,@1pxdeep-shadow-b,@intensity*@1pxdeep-shadow-intensity));
+    .box-shadow(0px 1px 2px rgba(@1pxdeep-shadow-r,@1pxdeep-shadow-g,@1pxdeep-shadow-b,@intensity*@1pxdeep-shadow-intensity));
 }
 
 .1pxdeep-shadow-inset(@intensity:1) {
@@ -188,12 +179,10 @@
 // Core styles
 
 .btn {
-
     .1pxdeep-shadow();
 
     &:active,
     &.active {
-        border:1px solid transparent;
         .box-shadow(none);
     }
 
@@ -214,6 +203,26 @@
         &:hover,
         &:focus {
             background:lighten(@color,2%);
+            .btn-borders(lighten(@color,2%));
+            .contrast(@color);
+        }
+
+        &:active,
+        &.active {
+            .contrast-dim(@color);
+            background:darken(@color,2%);
+            border:1px solid darken(@color,2%);
+        }
+    }
+
+    .btn-color(@color) when (luma(@color) > @luma-upper-break) {
+        background:@color;
+        .contrast(@color);
+        .btn-borders(@color);
+
+        &:hover,
+        &:focus {
+            background:lighten(@color,2%);
             .contrast(@color);
         }
 
@@ -224,40 +233,21 @@
         }
     }
 
-    .btn-color(@color) when (luma(@color) > @luma-upper-break) {
-        background:darken(@color,4%);
-        .contrast(darken(@color,4%));
-
-        &:hover,
-        &:focus {
-            background:darken(@color,2%);
-            .contrast(darken(@color,4%));
-        }
-
-        &:active,
-        &.active {
-            background:darken(@color,2%);
-            border-color:darken(@color,2%);
-            .box-shadow(none);
-        }
-    }
-
     .btn-color(@color) when (@color = #ffffff){
-        background:white;
-        color:#888;
+        background:@color;
+        .contrast(@color);
         .btn-borders(@color);
 
         &:hover,
         &:focus {
             background:lighten(@color,2%);
-            color:#888;
+            .contrast(@color);
         }
 
         &:active,
         &.active {
             background:darken(@color,2%);
-            .box-shadow(none);
-            .opacity(90);
+            border:1px solid darken(@color,2%);
         }
     }
 
@@ -278,14 +268,14 @@
     &.color4a {.btn-color(@color4a);}
     &.color4b {.btn-color(@color4b);}
     &.color4c {.btn-color(@color4c);}
-}
 
-.btn-primary {.schemify-btn(#08c);}
-.btn-info {.schemify-btn(#5bc0de);}
-.btn-success {.schemify-btn(#62c462);}
-.btn-warning {.schemify-btn(#ff8000);}
-.btn-danger {.schemify-btn(#ee5f5b);}
-.btn-inverse {.schemify-btn(#444);}
+    &.btn-primary {.btn-color(@brand-primary);}
+    &.btn-info {.btn-color(@brand-info);}
+    &.btn-success {.btn-color(@brand-success);}
+    &.btn-warning {.btn-color(@brand-warning);}
+    &.btn-danger {.btn-color(@brand-danger);}
+    &.btn-inverse {.btn-color(#444);}
+}
 
 .schemify(@color) {
     @mix-weight:60%;
@@ -294,33 +284,6 @@
     .contrast(@new-color);
 }
 
-.schemify-btn(@color) {
-    @mix-weight:60%;
-    @new-color:mix(hsl(hue(@color),@sat,@luma),@color,@mix-weight);
-    background:@new-color;
-    .btn-borders(@new-color);
-    .contrast(@new-color);
-
-    &:hover {
-        background:lighten(@new-color,2%);
-        .btn-borders(lighten(@new-color,2%));
-        .contrast(@new-color);
-    }
-
-    &:active {
-        background:darken(@new-color,2%);
-        .contrast(@new-color);
-        border-color:darken(@new-color,2%);
-    }
-}
-
-.schemify-text(@color) {
-    @mix-weight:60%;
-    @new-color:mix(hsl(hue(@color),@sat,@luma),@color,@mix-weight);
-    color:@new-color;
-
-    .contrast(@color);
-}
 
 //elements
 
@@ -490,31 +453,19 @@ input[type="checkbox"] { //experimental flat look for checkboxes
 }
 
 .well {
-    background:white;
-    .contrast(white);
-    .box-shadow(none);
-    .btn-borders-invert(#ffffff);
+    border:none;
 
-    &.color1 {
-        background:@color1c;
-        .contrast(@color1c);
-        .btn-borders-invert(@color1c);
+    .well-color(@color) {
+        .1pxdeep-shadow-inset(2.5);
+        background:@color;
+        .contrast(@color);
+
+        a {
+            .contrast-link(@color);
+        }
     }
-    &.color2 {
-        background:@color2c;
-        .contrast(@color2c);
-        .btn-borders-invert(@color2c);
-    }
-    &.color3 {
-        background:@color3c;
-        .contrast(@color3c);
-        .btn-borders-invert(@color3c);
-    }
-    &.color4 {
-        background:@color4c;
-        .contrast(@color4c);
-        .btn-borders-invert(@color4c);
-    }
+
+    .well-color(@modal-backdrop-bg);
 }
 
 //navbars
@@ -561,7 +512,7 @@ input[type="checkbox"] { //experimental flat look for checkboxes
     li > a {
         .contrast-dim(@color1a);
         line-height: 25px;
-
+        z-index:100;
     }
 }
 
@@ -702,6 +653,7 @@ input[type="checkbox"] { //experimental flat look for checkboxes
     .close {
         .opacity(100);
         text-shadow:none;
+        margin-top:-1px;
     }
 
     .alert-color(@color) {
@@ -937,10 +889,6 @@ legend {
     }
 }
 
-.well {
-    .form-color(white);
-}
-
 .color1 {
     .form-color(@color1);
 }
@@ -964,7 +912,7 @@ legend {
 //code
 
 code, pre {
-    font-size:15px;
+    font-size:14px;
     text-shadow:none;
 
     .code-color(@color) {
@@ -975,10 +923,10 @@ code, pre {
 
     .code-color(white);
 
-    &.color1 { .code-color(@color1a)}
-    &.color2 { .code-color(@color2a)}
-    &.color3 { .code-color(@color3a)}
-    &.color4 { .code-color(@color4a)}
+    &.color1 { .code-color(@color1b)}
+    &.color2 { .code-color(@color2b)}
+    &.color3 { .code-color(@color3b)}
+    &.color4 { .code-color(@color4b)}
 }
 
 //labels and badges
@@ -1166,14 +1114,12 @@ hr {
     background:white;
     .contrast(white);
     border-radius:@border-radius-base;
-    //.border-top-radius(@border-radius-base);
 }
 
 .modal-footer {
     background:white;
     background:transparent;
     margin-top:0;
-    //.border-bottom-radius(@border-radius-base);
     border:none;
 }
 
@@ -1186,12 +1132,100 @@ hr {
 
 // panels
 .panel {
-    color:@gray;
+    border:none;
+    .box-shadow(none);
+
+    .panel-color(@color) {
+        background:@color;
+        .contrast(@color);
+    }
+
+    .panel-color(white);
+
+    &.color1 { .panel-color(@color1);}
+    &.color1a { .panel-color(@color1a);}
+    &.color1b { .panel-color(@color1b);}
+    &.color1c { .panel-color(@color1c);}
+    &.color2 { .panel-color(@color2);}
+    &.color2a { .panel-color(@color2a);}
+    &.color2b { .panel-color(@color2b);}
+    &.color2c { .panel-color(@color2c);}
+    &.color3 { .panel-color(@color3);}
+    &.color3a { .panel-color(@color3a);}
+    &.color3b { .panel-color(@color3b);}
+    &.color3c { .panel-color(@color3c);}
+    &.color4 { .panel-color(@color4);}
+    &.color4a { .panel-color(@color4a);}
+    &.color4b { .panel-color(@color4b);}
+    &.color4c { .panel-color(@color4c);}
 }
 
+.panel-heading, .panel-footer {
+    border:none;
 
-.container {
-    &.color4 {
-        background:@color4;
+    .panel-heading-color(@color) {
+        background:@color;
+        .contrast(@color);
     }
+
+    .panel-heading-color(white);
+
+    &.color1 { .panel-heading-color(@color1);}
+    &.color1a { .panel-heading-color(@color1a);}
+    &.color1b { .panel-heading-color(@color1b);}
+    &.color1c { .panel-heading-color(@color1c);}
+    &.color2 { .panel-heading-color(@color2);}
+    &.color2a { .panel-heading-color(@color2a);}
+    &.color2b { .panel-heading-color(@color2b);}
+    &.color2c { .panel-heading-color(@color2c);}
+    &.color3 { .panel-heading-color(@color3);}
+    &.color3a { .panel-heading-color(@color3a);}
+    &.color3b { .panel-heading-color(@color3b);}
+    &.color3c { .panel-heading-color(@color3c);}
+    &.color4 { .panel-heading-color(@color4);}
+    &.color4a { .panel-heading-color(@color4a);}
+    &.color4b { .panel-heading-color(@color4b);}
+    &.color4c { .panel-heading-color(@color4c);}
+}
+
+// list groups
+
+.list-group {
+    //background:white;
+    //border:none;
+
+    .list-group-color(@color) {
+        
+        .list-group-item {
+            background:@color;
+            .contrast(@color);
+            border-color:darken(@color,4%);
+        }
+    }
+
+    .list-group-color(white);
+
+    &.color1 { .list-group-color(@color1b);}
+    &.color2 { .list-group-color(@color2b);}
+    &.color3 { .list-group-color(@color3b);}
+    &.color4 { .list-group-color(@color4b);}
+}
+
+// sectionals
+.sectional {
+    padding-top:88px;
+    padding-bottom:88px;
+
+    .sectional-color(@color) {
+        background:@color;
+        .contrast(@color);
+    }
+
+    &.monochrome {.sectional-color(greyscale(@color1));}
+    &.highlight {.sectional-color(lighten(@1pxdeep-bg,6%));}
+
+    &.color1 {.sectional-color(@color1);}
+    &.color2 {.sectional-color(@color2);}
+    &.color3 {.sectional-color(@color3);}
+    &.color4 {.sectional-color(@color4);}
 }
