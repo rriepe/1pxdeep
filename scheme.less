@@ -14,7 +14,7 @@
 ///////////////////////////
 
 // This color is used to generate the scheme
-@seed-color:#5186b8;
+@seed-color:#578562;
 
 //// Color wheel positions
 ///////////////////////////
@@ -49,14 +49,16 @@
 
 // Customize these for different relative a, b and c colors
 
-@color-a-sat:10%;
-@color-a-lit:-20%;
+@contrast:1;
 
-@color-b-sat:8%;
-@color-b-lit:-8%;
+@color-a-sat:8%*@contrast;
+@color-a-lit:-15%*@contrast;
 
-@color-c-sat:0%;
-@color-c-lit:8%;
+@color-b-sat:7%*@contrast;
+@color-b-lit:-5%*@contrast;
+
+@color-c-sat:-3%*@contrast;
+@color-c-lit:8%*@contrast;
 
 ///////////////////////////
 ////Scheme building
@@ -78,11 +80,11 @@
 @l-factor:@luma; // what we'll use for the L in HSL
 
 @color1:@seed-color;
-@color1theme:hsl(hue(spin(@seed-color,0)),@sat,@l-factor);
+@color1theme:hsl(hue(spin(@seed-color,0)),@sat,@l-factor); // a color 1 alternate, to keep a, b and c colors consistent
 
-@color1a:lighten(saturate(@color1,@color-a-sat), @color-a-lit);
-@color1b:lighten(saturate(@color1,@color-b-sat), @color-b-lit);
-@color1c:lighten(saturate(@color1,@color-c-sat), @color-c-lit);
+@color1a:lighten(saturate(@color1theme,@color-a-sat), @color-a-lit);
+@color1b:lighten(saturate(@color1theme,@color-b-sat), @color-b-lit);
+@color1c:lighten(saturate(@color1theme,@color-c-sat), @color-c-lit);
 
 @color2:hsl(hue(spin(@seed-color,@wheel_pos1)),@sat,@l-factor);
 
@@ -139,3 +141,4 @@
     color:@new-color;
     .contrast(@color);
 }
+
