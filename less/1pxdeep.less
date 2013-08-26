@@ -76,7 +76,7 @@
 }
 
 .contrast-dim (@color) when (luma(@color) >= @luma-upper-break) {
-    color:mix(darken(@color,0%),#111,65%);
+    color:mix(darken(@color,5%),#111,65%);
 }
 
 .contrast-dim (@color) when (luma(@color) < @luma-upper-break) {
@@ -459,7 +459,7 @@ h1, h2, h3, h4, h5, h6,
         }
 
         li > a {
-            .contrast-dim(@color);
+            .contrast-dim(darken(@color,10%));
             line-height: 25px;
             z-index:100;
 

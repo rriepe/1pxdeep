@@ -6691,7 +6691,7 @@ h6 small,
   background-color: #578562;
 }
 .navbar-nav li > a {
-  color: #d5e1d8;
+  color: #d0d9d2;
   line-height: 25px;
   z-index: 100;
 }
@@ -6714,7 +6714,7 @@ h6 small,
   background-color: #578562;
 }
 .navbar-nav.color1 li > a {
-  color: #d5e1d8;
+  color: #d0d9d2;
   line-height: 25px;
   z-index: 100;
 }
@@ -6737,7 +6737,7 @@ h6 small,
   background-color: #5f9190;
 }
 .navbar-nav.color2 li > a {
-  color: #d7e4e3;
+  color: #d2dcdc;
   line-height: 25px;
   z-index: 100;
 }
@@ -6760,7 +6760,7 @@ h6 small,
   background-color: #79915f;
 }
 .navbar-nav.color3 li > a {
-  color: #dde4d7;
+  color: #d7dcd2;
   line-height: 25px;
   z-index: 100;
 }
@@ -6783,7 +6783,7 @@ h6 small,
   background-color: #915f85;
 }
 .navbar-nav.color4 li > a {
-  color: #e4d7e1;
+  color: #dcd2d9;
   line-height: 25px;
   z-index: 100;
 }
@@ -7392,14 +7392,14 @@ h6 small,
 }
 .pager.disabled > .disabled > a {
   background: #dddddd;
-  color: #969696;
+  color: #8d8d8d;
   opacity: 0.5;
   filter: alpha(opacity=50);
 }
 .pager.disabled > .disabled > a:hover,
 .pager.disabled > .disabled > a:focus {
   background-color: #dddddd;
-  color: #969696;
+  color: #8d8d8d;
 }
 .pagination {
   background: none;
