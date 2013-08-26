@@ -14,7 +14,7 @@
 ///////////////////////////
 
 // This color is used to generate the scheme
-@seed-color:#5186b8;
+@seed-color:#578562; //#5186b8 in 1pxdeep .9
 
 //// Color wheel positions
 ///////////////////////////
@@ -49,11 +49,11 @@
 
 // Customize these for different relative a, b and c colors
 
-@color-a-sat:10%;
-@color-a-lit:-20%;
+@color-a-sat:2%;
+@color-a-lit:12%;
 
 @color-b-sat:8%;
-@color-b-lit:-8%;
+@color-b-lit:-3%;
 
 @color-c-sat:0%;
 @color-c-lit:8%;
@@ -79,9 +79,11 @@
 @color1:@seed-color;
 @color1theme:hsl(hue(spin(@seed-color,0)),@sat,@l-factor);
 
-@color1a:lighten(saturate(@color1,@color-a-sat), @color-a-lit);
-@color1b:lighten(saturate(@color1,@color-b-sat), @color-b-lit);
-@color1c:lighten(saturate(@color1,@color-c-sat), @color-c-lit);
+@color1a:lighten(saturate(@color1theme,@color-a-sat), @color-a-lit);
+@color1b:lighten(saturate(@color1theme,@color-b-sat), @color-b-lit);
+@color1c:lighten(saturate(@color1theme,@color-c-sat), @color-c-lit);
+
+@color1a: mix(lighten(@color1,@color-a-lit),saturate(@color1,@color-a-sat),50%);
 
 @color2:hsl(hue(spin(@seed-color,@wheel_pos1)),@sat,@l-factor);
 

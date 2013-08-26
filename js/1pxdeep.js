@@ -1,54 +1,91 @@
 $(document).ready(function() {
-    //$('#demo_form').show();
 
     $('#1pxdeep_navbar').scrollspy();
 
-    $('.carousel').carousel();
+    $('.carousel').carousel({interval:false});
+
+    if(window.location.hash && window.location.hash.length == 7) {
+        $('#scheme_color').val(window.location.hash);
+        $('#demo_form').submit();
+    }
 
     $('#scheme_color').minicolors({
         animationSpeed: 100,
         animationEasing: 'swing',
         change: enableColorButton,
         changeDelay: 0,
-        control: 'hue',
-        defaultValue: '',
+        control: 'saturation',
         hide: null,
         hideSpeed: 100,
         inline: false,
         letterCase: 'lowercase',
         opacity: false,
-        position: 'top left',
+        position: 'bottom left',
         show: null,
         showSpeed: 100,
         swatchPosition: 'left',
-        textfield: true,
-        theme: 'bootstrap'
+        textfield: true
+    });
+
+    $('#scheme_color_navbar').minicolors({
+        animationSpeed: 100,
+        animationEasing: 'swing',
+        change: enableColorButtonNavbar,
+        changeDelay: 0,
+        control: 'saturation',
+        hide: null,
+        hideSpeed: 100,
+        inline: false,
+        letterCase: 'lowercase',
+        opacity: false,
+        position: 'bottom left',
+        show: null,
+        showSpeed: 100,
+        swatchPosition: 'left',
+        textfield: true
     });
 
     updateColorValues();
-});
-
-$('#toggle_navbar').click(function() {
-    $('#main_navbar').toggle();
 });
 
 $('a[href="#"]').click(function() {
     return false;
 });
 
-$('#scheme_header').click(function() {
-    $('#scheme_color').focus();
+$('#carousel-login-form .btn').click(function() {
+    return false;
 });
 
-$('#demo_form').change(function(e){
-    enableColorButton();
+$('#carousel-newsletter-signup .btn').click(function() {
+    return false;
 });
 
-$('#demo_form').submit(function(e){
+$('#demo_form,#demo_form_navbar').change(function(e){
+    var $this = $(this);
+    if ($this.is('#demo_form')) {
+        var color = $('#scheme_color').val();
+        enableColorButton();
+    } else {
+        var color = $('#scheme_color_navbar').val();
+        enableColorButtonNavbar();
+    }
+    $('#scheme_color, #scheme_color_navbar').val(color);
+    
+});
 
-    $('#change_color').val('Scheming...');
+$('#demo_form,#demo_form_navbar').submit(function(e){
 
-    var color = $('#scheme_color').val();
+    $this = $(this);
+
+    $('#change_color,#change_color_navbar').val('Scheming...');
+
+    if ($this.is('#demo_form')) {
+        var color = $('#scheme_color').val();
+    } else {
+        var color = $('#scheme_color_navbar').val();
+    }
+
+    //var color = $('#scheme_color').val();
 
     if ($('#tetrad').is(':checked')) {
         var wheel_pos1 = '30';
@@ -79,6 +116,8 @@ $('#demo_form').submit(function(e){
         '@wheel_pos3': wheel_pos3
     });
 
+    $('#scheme_color,#scheme_color_navbar').val(color);
+
     updateColorValues();
 
     resetColorButton();
@@ -105,12 +144,22 @@ function updateColorValues() {
 }
 
 function enableColorButton() {
-    $('#change_color').removeClass('disabled');
+    $('#change_color,#change_color_navbar').removeClass('disabled');
+    var color = $('#scheme_color').val();
+    $('#scheme_color_navbar').val(color);
+    $('#scheme_color_navbar').minicolors('value', color);
+}
+
+function enableColorButtonNavbar() {
+    $('#change_color,#change_color_navbar').removeClass('disabled');
+    var color = $('#scheme_color_navbar').val();
+    $('#scheme_color').val(color);
+    $('#scheme_color').minicolors('value', color);
 }
 
 function resetColorButton() {
-    $('#change_color').addClass('disabled');
-    $('#change_color').val('Scheme now');
+    $('#change_color,#change_color_navbar').addClass('disabled');
+    $('#change_color,#change_color_navbar').val('Scheme now');
 }
 
 function rgb2hex(rgb) {
@@ -122,7 +171,6 @@ function rgb2hex(rgb) {
 }
 
 less = {
-    //env: "development",
-    //async: true,
-    //relativeUrls: true
+    env: "development",
+    //async: true
 };
