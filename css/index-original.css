@@ -8932,6 +8932,7 @@ textarea#scheme_color_navbar {
   margin-right: 1%;
   margin-left: 1%;
   float: left;
+  overflow: hidden;
 }
 #swatches .swatch p {
   margin-left: 14px;
@@ -9090,7 +9091,16 @@ textarea#swatches .swatch input {
   font-size: 27px;
   line-height: 42px;
 }
+#mobile_less_warning {
+  display: none;
+}
 @media (max-width: 767px) {
+  #mobile_less_warning {
+    display: block;
+  }
+  #palette_preview_container {
+    display: none;
+  }
   #demo_form {
     position: relative;
   }
@@ -9142,19 +9152,24 @@ textarea#swatches .swatch input {
   #swatches .swatch {
     font-size: 14px;
   }
+  #swatches .swatch p {
+    margin-left: 8px;
+  }
   #swatches .swatch input {
     position: absolute;
     font-size: 12px;
     top: 38px;
     left: 10px;
     line-height: 16px;
-    width: 80px;
+    width: 60px;
     height: 18px;
+    margin-left: 0;
+    padding: 2px;
   }
   #main_navbar {
     border-bottom: 2px solid white;
   }
   #demo_form_navbar {
-    display: none !important;
+    display: none;
   }
 }

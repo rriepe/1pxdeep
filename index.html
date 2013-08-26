@@ -5,7 +5,7 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="icon" href="img/favicon.png" type="image/x-icon">
         <link rel="stylesheet" type="text/css" href="css/jquery.minicolors.css" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/index-original.css" />
         
 
         <title>1pxdeep | A flat Bootstrap 3 theme that changes color</title>
@@ -55,8 +55,6 @@
                     <div class="col-lg-7 col-md-7">
                         <div id="swatches" class="color2">
                             <br/>
-                            
-                            <h6 id="scheme_header" class="pull-right clearfix hide">&raquo; Generate your colors here:</h6>
                             <form id="demo_form">
                                 <div class="row">
                                     <div class="col-lg-4 color-md-6 col-sm-6">
@@ -90,7 +88,7 @@
                                             <span>Tetrad</span>
                                         </label>
                                     </div>
-                                    <div class="col-lg-4 col-md-12 col-sm-12">
+                                    <div id="palette_preview_container" class="col-lg-4 col-md-12 col-sm-12">
                                         <p><strong>Palette</strong></p>
                                         <div id="palette_preview" class="well">
                                             <div class="swatch color1"></div>
@@ -115,7 +113,10 @@
                                 <div class="row">
                                     <div class="col-lg-8">
                                         <br />
-                                        <input type="submit" id="change_color" class="btn btn-default btn-lg btn-block color2b disabled" value="Scheme now"/>
+                                        <p><input type="submit" id="change_color" class="btn btn-default btn-lg btn-block color2b disabled" value="Scheme now"/></p>
+                                        <div id="mobile_less_warning" class="alert alert-danger">
+                                            <p><strong>Warning!</strong> Client-side LESS takes a while.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </form>

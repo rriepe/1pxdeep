@@ -171,6 +171,5 @@ function rgb2hex(rgb) {
 }
 
 less = {
-    env: "development",
-    //async: true
+    
 };
