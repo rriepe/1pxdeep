@@ -68,7 +68,7 @@
 ///////////////////////////
 
 @sat:saturation(@seed-color);
-@luma:luma(@seed-color);
+@luma:luminance(@seed-color);
 @lit:lightness(@seed-color);
 @tone:desaturate(@seed-color,100%);
 
@@ -113,12 +113,12 @@
 
 // contrasts text against a given background color
 
-.contrast (@color) when (luma(@color) >= @luma-upper-break) {
+.contrast (@color) when (luminance(@color) >= @luma-upper-break) {
     //darker text for lighter backgrounds
     color:average(darken(@color,30%),#222);
 }
 
-.contrast (@color) when (luma(@color) < @luma-upper-break) {
+.contrast (@color) when (luminance(@color) < @luma-upper-break) {
     //white text for everything else
     color:#ffffff;
 }
