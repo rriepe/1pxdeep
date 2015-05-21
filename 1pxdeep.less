@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 ////
-//// 1pxdeep v1.0
+//// 1pxdeep v1.0.1
 ////
 //// Copyright 2013 Rex Riepe
 //// Licensed under the Apache License v2.0
@@ -32,9 +32,9 @@
 
 @brand-primary:                     hsl(hue(#428bca),@sat,@l-factor);
 @brand-info:                        hsl(hue(#5bc0de),@sat,@l-factor);
-@brand-success:                     hsl(hue(#5cb85c),(saturation(#5cb85c) + @sat)/2,(luma(#5cb85c) + @luma - 10)/2);
-@brand-warning:                     hsl(hue(#f0ad4e),(saturation(#f0ad4e) + @sat + 16)/2,(luma(#f0ad4e) + @luma - 10)/2);
-@brand-danger:                      hsl(hue(#d9534f),(saturation(#d9534f) + @sat)/2,(luma(#d9534f) + @luma + 10)/2);
+@brand-success:                     hsl(hue(#5cb85c),((saturation(#5cb85c) + @sat)/2),((luma(#5cb85c) + @luma - 10)/2));
+@brand-warning:                     hsl(hue(#f0ad4e),((saturation(#f0ad4e) + @sat + 16)/2),((luma(#f0ad4e) + @luma - 10)/2));
+@brand-danger:                      hsl(hue(#d9534f),((saturation(#d9534f) + @sat)/2),((luma(#d9534f) + @luma + 10)/2));
 
 @navbar-link-color:                 white;
 @navbar-link-hover-color:           white;
@@ -48,7 +48,7 @@
 
 @luma-upper-break:72;
 
-@contrast:@luma/50;
+@contrast:(@luma/50);
 
 //// Theme variables
 
@@ -145,24 +145,24 @@
 @1pxdeep-shadow-b:blue(@1pxdeep-shadow-color);
 
 .1pxdeep-shadow(@intensity:1) {
-    .box-shadow(0px 1px 2px rgba(@1pxdeep-shadow-r,@1pxdeep-shadow-g,@1pxdeep-shadow-b,@intensity*@1pxdeep-shadow-intensity));
+    .box-shadow(0px 1px 2px rgba(@1pxdeep-shadow-r,@1pxdeep-shadow-g,@1pxdeep-shadow-b,(@intensity*@1pxdeep-shadow-intensity)));
     //.box-shadow(none);
 }
 
 .1pxdeep-shadow(@intensity:1) when (luma(@color1) > @luma-upper-break)  {
     @1pxdeep-shadow-intensity:.05;
-    .box-shadow(0px 1px 2px rgba(@1pxdeep-shadow-r,@1pxdeep-shadow-g,@1pxdeep-shadow-b,@intensity*@1pxdeep-shadow-intensity));
+    .box-shadow(0px 1px 2px rgba(@1pxdeep-shadow-r,@1pxdeep-shadow-g,@1pxdeep-shadow-b,(@intensity*@1pxdeep-shadow-intensity)));
     //.box-shadow(none);
 }
 
 .1pxdeep-shadow-inset(@intensity:1) {
-    .box-shadow(inset 0px 0px 3px rgba(@1pxdeep-shadow-r,@1pxdeep-shadow-g,@1pxdeep-shadow-b,@intensity*@1pxdeep-shadow-intensity));
+    .box-shadow(inset 0px 0px 3px rgba(@1pxdeep-shadow-r,@1pxdeep-shadow-g,@1pxdeep-shadow-b,(@intensity*@1pxdeep-shadow-intensity)));
     //.box-shadow(none);
 }
 
 .1pxdeep-shadow-inset(@intensity:1) when (luma(@color1) > @luma-upper-break) {
     @1pxdeep-shadow-intensity:.05;
-    .box-shadow(inset 0px 0px 3px rgba(@1pxdeep-shadow-r,@1pxdeep-shadow-g,@1pxdeep-shadow-b,@intensity*@1pxdeep-shadow-intensity));
+    .box-shadow(inset 0px 0px 3px rgba(@1pxdeep-shadow-r,@1pxdeep-shadow-g,@1pxdeep-shadow-b,(@intensity*@1pxdeep-shadow-intensity)));
     //.box-shadow(none);
 }
 
