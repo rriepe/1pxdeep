@@ -12,6 +12,22 @@ Include scheme.less anywhere.
 
 Include 1pxdeep.less after all Bootstrap LESS.
 
+Bootstrap 4
+---
+Install the [1pxdeep theme for Bootstrap 4](https://github.com/bassjobsen/bootstrap-1pxdeep-theme/) with [bootstrap-cli](https://github.com/bassjobsen/bootstrap-cli/):
+
+Install the Bootstrap CLI with this command:
+
+```bash
+npm install bootstrap-cli --global
+```
+
+Use this command to set up a 1pxdeep for Bootstrap project with the 1pxdeep template:
+
+```bash
+bootstrap new --template 1pxdeep
+```
+
 Integration with other projects
 ---
 
